@@ -4,6 +4,8 @@
 @import 'icon-font';
 // @import 'rtl'; // uncomment to switch to RTL format
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600');
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -59,7 +61,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bold;
 
   // language selector for mobile devices
@@ -75,7 +77,8 @@ html, body {
   .logo {
     display: block;
     max-width: 100%;
-    margin-bottom: $logo-margin;
+    margin-top: $logo-margin-top;
+    margin-bottom: $logo-margin-bottom;
   }
 
   &>.search {
@@ -350,7 +353,7 @@ html, body {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
-    margin-top: 2em;
+    margin-top: 1em;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     background-color: #fdfdfd;
@@ -358,13 +361,13 @@ html, body {
 
   h1:first-child, div:first-child + h1 {
     border-top-width: 0;
-    margin-top: 0;
+    margin-top: 0.5em;
   }
 
   h2 {
     @extend %header-font;
     font-size: 19px;
-    margin-top: 4em;
+    margin-top: 1em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
     padding-top: 1.2em;
@@ -382,7 +385,7 @@ html, body {
   h3, h4, h5, h6 {
     @extend %header-font;
     font-size: 15px;
-    margin-top: 2.5em;
+    margin-top: 1em;
     margin-bottom: 0.8em;
   }
 
@@ -442,6 +445,7 @@ html, body {
   p, li, dt, dd {
     line-height: 1.6;
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   img {
@@ -464,7 +468,7 @@ html, body {
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
-    margin-top: 1.5em;
+    margin-top: 1em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
