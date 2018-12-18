@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Unit21 Integration</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -209,13 +209,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
+
+      <a href="https://unit21.ai/"><img src="images/logo.png" class="logo" alt="Logo" /></a>
+
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -225,280 +221,776 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#use-cases" class="toc-h1 toc-link" data-title="Use cases">Use cases</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#integration" class="toc-h1 toc-link" data-title="Integration">Integration</a>
+          </li>
+          <li>
+            <a href="#data-types" class="toc-h1 toc-link" data-title="Data types">Data types</a>
+          </li>
+          <li>
+            <a href="#add-user-event" class="toc-h1 toc-link" data-title="Add user event">Add user event</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#add-user-event-required-fields" class="toc-h2 toc-link" data-title="Required fields">Required fields</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#add-user-event-reserved-fields" class="toc-h2 toc-link" data-title="Reserved fields">Reserved fields</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#add-user-event-custom-fields" class="toc-h2 toc-link" data-title="Custom fields">Custom fields</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#action-event" class="toc-h1 toc-link" data-title="Action event">Action event</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#action-event-action-event-types" class="toc-h2 toc-link" data-title="Action event types">Action event types</a>
+                  </li>
+                  <li>
+                    <a href="#action-event-required-fields" class="toc-h2 toc-link" data-title="Required fields">Required fields</a>
+                  </li>
+                  <li>
+                    <a href="#action-event-reserved-fields" class="toc-h2 toc-link" data-title="Reserved fields">Reserved fields</a>
+                  </li>
+                  <li>
+                    <a href="#action-event-custom-fields" class="toc-h2 toc-link" data-title="Custom fields">Custom fields</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#transaction-event" class="toc-h1 toc-link" data-title="Transaction event">Transaction event</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#transaction-event-transaction-event-types" class="toc-h2 toc-link" data-title="Transaction event types">Transaction event types</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-event-required-fields" class="toc-h2 toc-link" data-title="Required fields">Required fields</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-event-reserved-fields" class="toc-h2 toc-link" data-title="Reserved fields">Reserved fields</a>
+                  </li>
+                  <li>
+                    <a href="#transaction-event-custom-fields" class="toc-h2 toc-link" data-title="Custom fields">Custom fields</a>
+                  </li>
+              </ul>
           </li>
       </ul>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <!-- "$app"        : {
+    
+    "$os"                  : "iOS",
+    "$os_version"          : "10.1.3",
+    "$device_manufacturer" : "Apple",
+    "$device_model"        : "iPhone 4,2",
+    "$device_unique_id"    : "A3D261E4-DE0A-470B-9E4A-720F3D3D22E6",
+    "$app_name"            : "Calculator",
+    "$app_version"         : "3.2.7"
+  }
+} -->
+<h1 id='introduction'>Introduction</h1>
+<p>Unit21 uses machine learning &amp; human intelligence to help businesses identify and investigate money laundering &amp; fraud. We help our customers automate as much of the fraud/compliance review process as possible, minimizing time spent on manual case reviews.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p><br>
+The Unit21 workbench is a specialized ticketing system that takes in your data, intelligently processes it with a system of rules and machine learning algorithms, then surfaces noteworthy events to analysts and investigators for review. Through the workbench, teams can test, define and manage rules, craft workflows to drive risk detection logic, and perform manual review and investigations of flagged activity. </p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><br>
+Wherever relevant, we combine this detection logic with sanctions lists and blacklists to automatically file government reports (e.g. SARs) necessary to keep your organization compliant with anti-financial crime regulations. We recognize the immense value of a highly specialized and customizable interface so that time spent on manual case review is minimized. As such, we designed our data schema with simplicity and flexibility in mind.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p><br>
+The next sections will walk you through everything that&#39;s needed to get started with Unit21.</p>
+<h1 id='use-cases'>Use cases</h1>
+<p>Unit21 can assist companies with detecting and investigating following vectors of abuse:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<ul>
+<li><strong>Account fraud</strong> - account takeovers, fake accounts etc.</li>
+<li><strong>Money laundering</strong> - buy/sell collusion, loan repayment anomalies, account layering etc.</li>
+<li><strong>Promotion fraud</strong> - referral abuse, promotion code abuse, return fraud etc.</li>
+<li><strong>Payment fraud</strong> - ACH fraud, force-posts, chargebacks etc.</li>
+</ul>
+<h1 id='integration'>Integration</h1>
+<p>We provide two modes of data integration: 1) streaming, 2) batch. Depending on your needs, either or both may be suitable.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<ol>
+<li><strong>API integration</strong> - Unit21 will provide an API key that gives you access to set of API endpoints to submit indvidual events or chunks of events. Customers select this option if there are near-real-time detection requirements.</li>
+<li><strong>Batch upload</strong> - We will provide a HTTPS or SFTP upload endpoint where periodic file uploads should be sent. These files should be in standard JSON or CSV format. All separate CSV files should have column names as the header row. Customers typically select this option if there are no real-time detection or resolution needs.</li>
+</ol>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>We will provide more details on either of these methods depending on your use-case. Should any other methods of integrations be more suitable or convenient, we are happy to provide resources to make it happen.</p>
+<h1 id='data-types'>Data types</h1>
+<p>Unit21&#39;s systems accepts three different types of events:</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<ol>
+<li><strong>Add user event</strong> - provides details on new users that you onboard.
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<ul>
+<li>Should be sent whenever you onboard new users to your platform, or provided in bulk when you first integrate with Unit21.</li>
+<li>This event type is only used for new additions of users to the system. Modifications or deletions made to existing users should be expressed in a User action event.</li>
+</ul></li>
+<li><strong>Action event</strong> - provides details on non-transaction events triggered by an established user on your system, or updates made to a user&#39;s profile or status.
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<ul>
+<li>User logins, app access events, payment method updates, account deletion, user communications/disputes with your customer interaction teams etc. all fall into this category.</li>
+</ul></li>
+<li><strong>Transaction event</strong> - provides details on any finalized transfers of monetary value involving users in the system.
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li>This event type is only used for new additions of users to the system. Modifications or deletions made to existing users should be expressed in a User action event.</li>
+</ul></li>
+</ol>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>We designed Unit21&#39;s integrations for minimal disruption to our customer&#39;s business and engineering workflows. Because we service a wide range of businesses each interacting with and recording different kinds of data, we adopt a semi-flexible schema that can adapt to all relevant use-cases.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>Each event is made up of a list of fields. Some fields are required, some are reserved, and the rest are custom:</p>
+
+<ol>
+<li><strong>Required fields</strong> - critical information that needs to be provided to Unit21, without which events will be rejected.</li>
+<li><strong>Reserved fields</strong> - standard fields that Unit21 accepts but does not require. We perform advanced processing on these fields to provide your organization with an enhanced experience. Modeling your data with reserved fields will ensure that you get the most out of Unit21. Some reserved fields specified in the data specification may be specific to industries/use-cases that may be irrelevant for your business - you can safely ignore these.</li>
+<li><strong>Custom fields</strong> - any additional data you capture within your system that may be helpful to risk/compliance decisioning. Any such fields that do not exist as reserved fields should be sent as a custom field. <strong>Note</strong>: You are free to name custom fields freely, with the exception of names already used by required or reserved fields.</li>
+</ol>
+
+<p>All of required and reserved fields in the system have a <code>type</code> associated with them:</p>
+
+<ul>
+<li><code>String</code> for any text (unicode) data.</li>
+<li><code>Numeric</code> for any whole numbers, or numbers with decimal places. Also used to represent timestamps in the system.</li>
+<li><code>Boolean</code> for any <code>True</code>/<code>False</code> type data.</li>
+<li><code>List</code> for any multiple-valued fields. <strong>Note</strong>: When <code>String / List</code> is specified as the field type, list values will be parsed as <code>Strings</code>. When it is <code>Numeric / List</code>, list values will be parsed as <code>Numerics</code>.</li>
+</ul>
+<h1 id='add-user-event'>Add user event</h1><h2 id='add-user-event-required-fields'>Required fields</h2>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Field</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>user_id</td>
+<td>String</td>
+<td>User identification string used to uniquely identify users on your platform. If difficult to associate <code>user_id</code> with transactions and easier to associate <code>txn_instrument_id</code> with transactions instead, this field can be set to the empty string - in such cases <code>txn_instrument_id</code> needs to be set to a value that allows transactions to be associated with users.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>registration_datetime</td>
+<td>Numeric</td>
+<td>The date and time that the user registered on your platform in <a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time format</a> (number of seconds elapsed 1 Jan 1970 00:00:00 UTC).</td>
+</tr>
+<tr>
+<td>date_of_birth</td>
+<td>String</td>
+<td>User&#39;s date of birth in <code>DD-MM-YYYY</code> format.</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>String</td>
+<td>The first name associated with the user.</td>
+</tr>
+<tr>
+<td>middle_name</td>
+<td>String</td>
+<td>The middle name associated with the user.</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>String</td>
+<td>The last name associated with the user.</td>
+</tr>
+<tr>
+<td>primary_address</td>
+<td>String</td>
+<td>The main street address associated with the transaction instrument on the user&#39;s account, if applicable. <strong>Note</strong>: If there are multiple addresses (billing, shipping, mailing etc.) associated with the account, provide the one most representative or relevant one for risk and compliance review. In most cases, this is the billing address. If there are multiple billing addresses associated with the account, provide just one.</td>
+</tr>
+<tr>
+<td>primary_city</td>
+<td>String</td>
+<td>The corresponding city for the <code>primary_address</code> field.</td>
+</tr>
+<tr>
+<td>primary_state</td>
+<td>String</td>
+<td>The corresponding state for the <code>primary_address</code> field. Can provide <a href="https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations">abbreviated form</a> for states in the USA, otherwise must be provided in full form.</td>
+</tr>
+<tr>
+<td>primary_country</td>
+<td>String</td>
+<td>The corresponding country for the <code>primary_address</code> field. Can provide 2 character <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2 abbreviated form</a> or in full form.</td>
+</tr>
+<tr>
+<td>primary_zipcode</td>
+<td>String</td>
+<td>The corresponding zipcode for the <code>primary_address</code> field. Can provide either 5-digit ZIP Code (<code>99999</code>) or ZIP+4 Code (<code>99999-9999</code>) formats for US addresses.</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h2 id='add-user-event-reserved-fields'>Reserved fields</h2>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>description</td>
+<td>String</td>
+<td>Human-readable text that describes the user/account, used to provide analysts context when reviewing accounts.</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String</td>
+<td>Username, typically set by the end-user on your platform. <strong>Note:</strong> If this is the same as <code>user_id</code> and/or <code>user_email</code>, assign the same value to these fields.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>String</td>
+<td>The gender associated with the user - <code>M</code> for male, <code>F</code> for female, <code>U</code> for unknown or unspecified.</td>
+</tr>
+<tr>
+<td>user_email</td>
+<td>String</td>
+<td>The email address associated with the user. <strong>Note:</strong> If this is the same as <code>user_id</code> and/or <code>username</code>, assign the same value to these fields.</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>String / List</td>
+<td>Single or multiple IPv4 or IPv6 format IP addresses associated with the user.</td>
+</tr>
+<tr>
+<td>payment_methods</td>
+<td>String / List</td>
+<td>Single or multiple payment methods associated with the user account e.g. <code>paypal</code>, <code>creditcard-1234</code>, <code>ach-9942</code> etc.</td>
+</tr>
+<tr>
+<td>social_sign_on_types</td>
+<td>String / List</td>
+<td>Single or multiple social sign-on methods associated with the user account e.g. <code>facebook</code>, <code>google</code>, <code>openid</code> etc.</td>
+</tr>
+<tr>
+<td>txn_instrument_id</td>
+<td>String / List</td>
+<td>Single or multiple IDs of the instrument associated with events/transactions involving this user e.g. <code>credit_card_id</code>, <code>savings_account_id</code>, <code>store_id</code> etc. (<strong>Note</strong>: This field associates events/transactions to user accounts. Transaction/event data should include either <code>user_id</code> or <code>txn_instrument_id</code> to enable the system to link users to transactions.)</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>String / List</td>
+<td>Single or multiple device identifiers associated with the user. This can be a custom-generated fingerprint, a unique identifier provided by the mobile operating system (iOS UUID) or by a third-party vendor such as Iovation or ThreatMetrix.</td>
+</tr>
+<tr>
+<td>user-agent</td>
+<td>String / List</td>
+<td>Single or multiple user-agents associated with the user.</td>
+</tr>
+<tr>
+<td>phone_num</td>
+<td>String</td>
+<td>The phone number associated with the user in <a href="https://en.wikipedia.org/wiki/E.164">E.164 format</a> including country calling code e.g. <code>+14160326712</code> (this <a href="https://support.twilio.com/hc/en-us/articles/223183008-Formatting-International-Phone-Numbers">Twilio formatting guide</a> is helpful).</td>
+</tr>
+<tr>
+<td>secondary_address</td>
+<td>String</td>
+<td>The street address of the second address associated with the account. If both billing and shipping addresses are provided, this field is usually used to represent the shipping address.</td>
+</tr>
+<tr>
+<td>secondary_city</td>
+<td>String</td>
+<td>The corresponding city for the <code>secondary_address</code> field.</td>
+</tr>
+<tr>
+<td>secondary_state</td>
+<td>String</td>
+<td>The corresponding state for the <code>secondary_address</code> field. Can provide <a href="https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations">abbreviated form</a> for states in the USA, otherwise must be provided in full form.</td>
+</tr>
+<tr>
+<td>secondary_country</td>
+<td>String</td>
+<td>The corresponding country for the <code>secondary_address</code> field. Can provide 2 character <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2 abbreviated form</a> or in full form.</td>
+</tr>
+<tr>
+<td>referral_user_id</td>
+<td>String</td>
+<td>A <code>user_id</code> field that identifies another user that referred this user to the platform. For best results, the referrer should be</td>
+</tr>
+<tr>
+<td>id_verified</td>
+<td>Boolean</td>
+<td><code>True</code>/<code>False</code> field indicating if the user&#39;s ID has been verified by your platform or through a third-party service.</td>
+</tr>
+<tr>
+<td>address_verified</td>
+<td>Boolean</td>
+<td><code>True</code>/<code>False</code> field indicating if the user&#39;s address has been verified by your platform or through a third-party service.</td>
+</tr>
+<tr>
+<td>phone_verified</td>
+<td>Boolean</td>
+<td><code>True</code>/<code>False</code> field indicating if the user&#39;s phone number has been verified by your platform or through a third-party service.</td>
+</tr>
+<tr>
+<td>email_verified</td>
+<td>Boolean</td>
+<td><code>True</code>/<code>False</code> field indicating if the user&#39;s email has been verified by your platform or through a third-party service.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='add-user-event-custom-fields'>Custom fields</h2>
+<p>Examples of custom fields that may be helpful:</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<ul>
+<li><p>Depository/Banking</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<ul>
+<li><code>account_balance</code></li>
+<li><code>credit_score</code></li>
+</ul></li>
+<li><p>Lending</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<ul>
+<li><code>funding_sources</code></li>
+<li><code>registered_loan_payees</code></li>
+</ul></li>
+<li><p>Marketplaces/Rentals</p>
+
+<ul>
+<li><code>num_items_sold</code></li>
+<li><code>stars</code></li>
+<li><code>feedback_pos</code></li>
+<li><code>feedback_neg</code></li>
+<li><code>feedback_neutral</code></li>
+<li><code>is_seller</code></li>
+<li><code>store_id</code></li>
+<li><code>primary_ship_from_addr</code></li>
+<li><code>listing_url</code></li>
+<li><code>square_feet</code></li>
+<li><code>security_deposit</code></li>
+<li><code>cleaning_fee</code></li>
+</ul></li>
+<li><p>Crypto Exchanges/Payments</p>
+
+<ul>
+<li><code>wallet_addresses</code></li>
+<li><code>portfolio_value</code></li>
+<li><code>funding_sources</code></li>
+</ul></li>
+</ul>
+<h1 id='action-event'>Action event</h1><h2 id='action-event-action-event-types'>Action event types</h2>
+<p><em>Action</em> events cover a variety of different types of events that may affect the risk and compliance decisioning process. These events may be initiated by users on your platform, but may also be initiated by external users such as unregistered users or your own team members.</p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Event Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>_USER_LOGIN</td>
+<td>Event log of a registered user logging in to your platform.</td>
+</tr>
+<tr>
+<td>_USER_LOGOUT</td>
+<td>Event log of a registered user logging out of your platform.</td>
+</tr>
+<tr>
+<td>_USER_ACCESS</td>
+<td>Event log of a registered user accessing</td>
+</tr>
+<tr>
+<td>_USER_PROFILE_UPDATE</td>
+<td>Update event of a user&#39;s profile e.g. a user updating their shipping address.</td>
+</tr>
+<tr>
+<td>_USER_DELETION</td>
+<td>Permanent user deletion from the platform.</td>
+</tr>
+<tr>
+<td>_USER_BLOCKED</td>
+<td>User blocked on the platform.</td>
+</tr>
+<tr>
+<td>_USER_SUSPENDED</td>
+<td>Temporary suspension of the user on the platform.</td>
+</tr>
+<tr>
+<td>_COMMUNICATION</td>
+<td>Event log detailing a communication/messaging event involving users on your platform and/or your customer contact teams.</td>
+</tr>
+<tr>
+<td>_DISPUTE</td>
+<td>Event log detailing disputes and complaints filed user on your platform.</td>
+</tr>
+<tr>
+<td>_USER_REFERRAL</td>
+<td>Event log detailing any referral activity initiated by existing users on your platform.</td>
+</tr>
+<tr>
+<td>_PROMOTION_APPLIED</td>
+<td>Event log detailing any application of promotions to a user on your platform.</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
+<h2 id='action-event-required-fields'>Required fields</h2>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>event_type</td>
+<td>String</td>
+<td><em>Action</em> event type - must be one of the values provided in the <em>Action Event Types</em> table above e.g. <code>_USER_PROFILE_UPDATE</code>.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>user_id</td>
+<td>String</td>
+<td>User identification string used to uniquely identify users on your platform. If all users involved in the event are registered on your system, this field should indicate the user most likely to be the perpetrator of malice. If none of the users involved in the action are registered on your system, this should be a string that can uniquely identify the initiator of the action event e.g. email address.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>event_datetime</td>
+<td>Numeric</td>
+<td>The date and time that the user registered on your platform in <a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time format</a> (number of seconds elapsed 1 Jan 1970 00:00:00 UTC).</td>
 </tr>
 </tbody></table>
+<h2 id='action-event-reserved-fields'>Reserved fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>description</td>
+<td>String</td>
+<td>Human-readable text that describes the user/account, used to provide analysts context when reviewing accounts.</td>
+</tr>
+<tr>
+<td>ip_address</td>
+<td>String</td>
+<td>IPv4 or IPv6 format IP addresses associated with the action event.</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td>String</td>
+<td>User-agent associated with the action event.</td>
+</tr>
+<tr>
+<td>session_id</td>
+<td>String</td>
+<td>User&#39;s session identifier associated with the action triggered by the user.</td>
+</tr>
+<tr>
+<td>message_sender</td>
+<td>String</td>
+<td>ID of the user or team member that sent the message, dispute, comment, or any user-entered prose associated with the action event. If the message is sent by a user, then the same value as the required field <code>user_id</code> should be used. If sender does not have an ID, email address or some other identifying name should be used.</td>
+</tr>
+<tr>
+<td>message_recipient</td>
+<td>String</td>
+<td>Recipient of the message. If the message is received by a user, then the same value as the required field <code>user_id</code> should be used. If recipient does not have an ID, email address or some other identifying name should be used.</td>
+</tr>
+<tr>
+<td>message_subject</td>
+<td>String</td>
+<td>Subject of the message.</td>
+</tr>
+<tr>
+<td>message_body</td>
+<td>String</td>
+<td>Body text of the message.</td>
+</tr>
+<tr>
+<td>message_attachment_urls</td>
+<td>String / List</td>
+<td>Single or multiple links to attachments associated with the message. Descriptions of each attachment should be included as postamble in the <code>message_body</code>.</td>
+</tr>
+<tr>
+<td>field_deleted_name</td>
+<td>String</td>
+<td>Name of the field that is to be deleted.</td>
+</tr>
+<tr>
+<td>field_mutated_name</td>
+<td>String</td>
+<td>Name of the field that is to be changed.</td>
+</tr>
+<tr>
+<td>field_mutated_value</td>
+<td>String</td>
+<td>New value of the field that is to be changed. This is provided as a string but will be conditionally parsed into <code>Numeric</code> or <code>Boolean</code> type based on the original type of the field provided in <em>Add User</em> events.</td>
+</tr>
+</tbody></table>
+<h2 id='action-event-custom-fields'>Custom fields</h2>
+<p>Custom fields that may be helpful include those associated with these business-specific actions:</p>
+
+<ul>
+<li><p>Depository/Banking</p>
+
+<ul>
+<li>Card requested</li>
+<li>New account opened</li>
+<li>Added new wire transfer recipient</li>
+</ul></li>
+<li><p>Lending</p>
+
+<ul>
+<li>Applied for new loan</li>
+<li>Loan application successful/failure</li>
+<li>Added/removed linked bank account</li>
+</ul></li>
+<li><p>Marketplaces/Rentals</p>
+
+<ul>
+<li>Added/removed payment method</li>
+<li>Added new payee</li>
+<li>Listed item in store</li>
+<li>Listed property for rent</li>
+</ul></li>
+<li><p>Crypto Exchanges/Payments</p>
+
+<ul>
+<li>Added/removed wallet address</li>
+<li>Added/removed payment method</li>
+<li>Loaded funds</li>
+</ul></li>
+</ul>
+<h1 id='transaction-event'>Transaction event</h1><h2 id='transaction-event-transaction-event-types'>Transaction event types</h2>
+<p><em>Transaction</em> events cover a variety of different types of monetary/value transfers.</p>
+
+<table><thead>
+<tr>
+<th>Transaction Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>_P2P_TRANSFER</td>
+<td>Transfer of value between users on your platform.</td>
+</tr>
+<tr>
+<td>_PURCHASE</td>
+<td>Goods purchases, rentals, card network payments made by the target user.</td>
+</tr>
+<tr>
+<td>_REFUND</td>
+<td>Reversal of any transaction into the target user&#39;s account.</td>
+</tr>
+<tr>
+<td>_CORRECTION</td>
+<td>Alteration or modification of a previous transaction.</td>
+</tr>
+<tr>
+<td>_DEBIT</td>
+<td>Monetary transfer into the target user&#39;s account.</td>
+</tr>
+<tr>
+<td>_LOAN_GIVEN</td>
+<td>Loan given by the target user to the platform or a specific user.</td>
+</tr>
+<tr>
+<td>_LOAN_RECEIVED</td>
+<td>Loans received by the target user.</td>
+</tr>
+<tr>
+<td>_LOAN_PAYMENT</td>
+<td>Loan repayment given or received by the target user.</td>
+</tr>
+</tbody></table>
+<h2 id='transaction-event-required-fields'>Required fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>txn_type</td>
+<td>String</td>
+<td><em>Transaction</em> event type - must be one of the values provided in the <em>Transaction Event Types</em> table above e.g. <code>_P2P_TRANSFER</code>.</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>String</td>
+<td>User identification string used to uniquely identify users on your platform. If all users involved in the transaction are registered on your system, this field should indicate the user most likely to be the perpetrator of malice e.g. in a two-sided marketplace transaction, use the seller; in a card payment transaction, use the card holder; in a loan transaction, use the loan repayer. If none of the users involved in the transaction are registered on your system, this should be a string that can uniquely identify the initiator of the transaction event e.g. email address.</td>
+</tr>
+<tr>
+<td>txn_id</td>
+<td>String</td>
+<td>Transaction identification string used to uniquely identify the transaction within your own internal systems.</td>
+</tr>
+<tr>
+<td>txn_datetime</td>
+<td>Numeric</td>
+<td>The date and time that the user registered on your platform in <a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time format</a> (number of seconds elapsed 1 Jan 1970 00:00:00 UTC).</td>
+</tr>
+<tr>
+<td>txn_amount</td>
+<td>Numeric</td>
+<td>The dollar value of the transaction. Specified in the currency set in the <code>currency_code</code> field, if not set, the default currency for your organization is used.</td>
+</tr>
+<tr>
+<td>transaction_status</td>
+<td>String</td>
+<td>Status of the transaction - can take on values <code>COMPLETED</code>, <code>UNPAID</code>, <code>INCOMPLETE</code>, <code>CANCELLED</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='transaction-event-reserved-fields'>Reserved fields</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ip_address</td>
+<td>String</td>
+<td>IPv4 or IPv6 format IP addresses associated with the action event.</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td>String</td>
+<td>User-agent associated with the action event.</td>
+</tr>
+<tr>
+<td>session_id</td>
+<td>String</td>
+<td>User&#39;s session identifier associated with the action triggered by the user.</td>
+</tr>
+<tr>
+<td>message_sender</td>
+<td>String</td>
+<td>ID of the user or team member that sent the message, dispute, comment, or any user-entered prose associated with the action event. If the message is sent by a user, then the same value as the required field <code>user_id</code> should be used. If sender does not have an ID, email address or some other identifying name should be used.</td>
+</tr>
+<tr>
+<td>user_email</td>
+<td>String</td>
+<td>The email address associated with the user. <strong>Note:</strong> If this is the same as <code>user_id</code>, assign the same value to both fields.</td>
+</tr>
+<tr>
+<td>txn_instrument</td>
+<td>String</td>
+<td>The instrument used to make the transaction e.g. <code>credit_card_id</code>, <code>savings_account_id</code>, <code>store_id</code> etc. <strong>Note</strong>: This field associates events/transactions to user accounts.</td>
+</tr>
+<tr>
+<td>post_datetime</td>
+<td>Numeric</td>
+<td>The date and time that the transaction was posted (but not the &quot;final&quot; datetime, which is specified in the <code>txn_datetime</code> field) in <a href="https://en.wikipedia.org/wiki/Unix_time">Epoch time format</a> (number of seconds elapsed 1 Jan 1970 00:00:00 UTC).</td>
+</tr>
+<tr>
+<td>currency_code</td>
+<td>String</td>
+<td>Currency code in <a href="https://www.iban.com/currency-codes">IBAN numeric or 3-letter format</a> e.g. <code>USD</code> or <code>840</code>, or if referring to a cryptocurrency/token, this should be the most common short code for it e.g. <code>BTC</code>, <code>ETH</code>, <code>LTC</code>.</td>
+</tr>
+<tr>
+<td>network_code</td>
+<td>String</td>
+<td>Transaction system network code indicating the transaction category. This code is typically provided by payment processors such as Galileo, Stripe, or Marqeta.</td>
+</tr>
+<tr>
+<td>authorization_code</td>
+<td>String</td>
+<td>Typically a 5-6 character code sent by the issuing bank indicated at the end of either a Successful Sales Transaction Response or a Declined Sales Transaction Response in the course of a typical merchant credit card transaction.</td>
+</tr>
+<tr>
+<td>merchant_id</td>
+<td>String</td>
+<td>A unique identifier string used to identify the merchant transacting with the user. This identifier may originate from the payment processor, the card network, or may be assigned by your own systems.</td>
+</tr>
+<tr>
+<td>merchant_category_code</td>
+<td>String</td>
+<td>A 4-digit numerical code (<a href="https://en.wikipedia.org/wiki/Merchant_category_code">MCC</a>) detailed in <a href="https://en.wikipedia.org/wiki/ISO_18245">ISO 18245</a> indicating the merchant&#39;s business type/category. Should correspond to the merchant referred to by <code>merchant_id</code>.</td>
+</tr>
+<tr>
+<td>merchant_country_code</td>
+<td>String</td>
+<td>The corresponding country for the merchant referred to by the <code>merchant_id</code> field. Can provide 2 character <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2 abbreviated form</a> or in full form.</td>
+</tr>
+<tr>
+<td>recipient_id</td>
+<td>String</td>
+<td>Unique identification string used to identify the recipient of the transaction. If the recipient is not registered in the system, this should be a string that can uniquely identify recipient e.g. email address.</td>
+</tr>
+<tr>
+<td>recipient_country_code</td>
+<td>String</td>
+<td>The corresponding country for the recipient referred to by the <code>recipient_id</code> field. Can provide 2 character <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">ISO 3166-1 alpha-2 abbreviated form</a> or in full form.</td>
+</tr>
+<tr>
+<td>preadjusted_txn_amount</td>
+<td>Numeric</td>
+<td>The unadjusted/initial transaction amount. In credit card transactions, this is the authorized amount while <code>txn_amount</code> indicates the captured amount. Specified in the same currency as <code>txn_amount</code>.</td>
+</tr>
+<tr>
+<td>internal_auxiliary_fee</td>
+<td>Numeric</td>
+<td>Additional fees associated with the transaction charged by your platform e.g. platform transaction fees, service fees. Specified in the same currency as <code>txn_amount</code>.</td>
+</tr>
+<tr>
+<td>external_auxiliary_fee</td>
+<td>Numeric</td>
+<td>Additional fees associated with the transaction that is not charged by your platform or is intended to cover an external cost e.g. shipping costs, cleaning fees, cryptocurrency network transfer fees. Specified in the same currency as <code>txn_amount</code>.</td>
+</tr>
+<tr>
+<td>interchange_fee</td>
+<td>Numeric</td>
+<td>Fee associated with currency or value store conversions. Specified in the same currency as <code>txn_amount</code>.</td>
+</tr>
+<tr>
+<td>user_data_1</td>
+<td>String</td>
+<td>User data associated with the transaction. In credit card transactions, this could be the <a href="https://en.wikipedia.org/wiki/Billing_descriptor">billing descriptor</a>, in other types of transactions, this could be a generic description field containing some details on the transaction. Used to provide analysts context when reviewing accounts.</td>
+</tr>
+<tr>
+<td>user_data_2</td>
+<td>String</td>
+<td>A continuation of <code>user_data_1</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='transaction-event-custom-fields'>Custom fields</h2>
+<p>Examples of custom fields that may be helpful:</p>
+
+<ul>
+<li><p>Depository/Banking</p>
+
+<ul>
+<li><code>payer_balance</code></li>
+<li><code>sender_account_id</code></li>
+<li><code>txn_failure_code</code></li>
+</ul></li>
+<li><p>Lending</p>
+
+<ul>
+<li><code>starting_principal</code></li>
+<li><code>principal_balance</code></li>
+<li><code>total_repayment_period</code></li>
+<li><code>remaining_repayment_period</code></li>
+</ul></li>
+<li><p>Marketplaces/Rentals</p>
+
+<ul>
+<li><code>listed_on</code></li>
+<li><code>listing_title</code></li>
+<li><code>num_bidders</code></li>
+<li><code>num_bids</code></li>
+<li><code>paid_on</code></li>
+<li><code>shipping_label_printed</code></li>
+</ul></li>
+<li><p>Crypto Exchanges/Payments</p>
+
+<ul>
+<li><code>recipient_address</code></li>
+<li><code>price_per_coin</code></li>
+<li><code>funding_source</code></li>
+</ul></li>
+</ul>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
