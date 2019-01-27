@@ -3,7 +3,6 @@ title: Unit21 Integration
 
 includes:
   - introduction
-  - use_cases
   - integration
   - data_types
   - add_user_event
