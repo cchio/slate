@@ -35,7 +35,7 @@ secondary_address | String | The street address of the second address associated
 secondary_city | String | The corresponding city for the `secondary_address` field.
 secondary_state | String | The corresponding state for the `secondary_address` field. Can provide [abbreviated form](https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations) for states in the USA, otherwise must be provided in full form.
 secondary_country | String | The corresponding country for the `secondary_address` field. Can provide 2 character [ISO 3166-1 alpha-2 abbreviated form](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements) or in full form.
-referral_user_id | String | A `user_id` field that identifies another user that referred this user to the platform. For best results, the referrer should be 
+referral_user_id | String | A `user_id` field that identifies another user that referred this user to the platform.
 id_verified | Boolean | `True`/`False` field indicating if the user's ID has been verified by your platform or through a third-party service.
 address_verified | Boolean | `True`/`False` field indicating if the user's address has been verified by your platform or through a third-party service.
 phone_verified | Boolean | `True`/`False` field indicating if the user's phone number has been verified by your platform or through a third-party service.

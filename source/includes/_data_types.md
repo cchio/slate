@@ -8,7 +8,7 @@ Unit21's systems accepts three different types of events:
 2. **Action event** - provides details on non-transaction events triggered by an established user on your system, or updates made to a user's profile or status.
   * User logins, app access events, payment method updates, account deletion, user communications/disputes with your customer interaction teams etc. all fall into this category.
 3. **Transaction event** - provides details on any finalized transfers of monetary value involving users in the system.
-  * This event type is only used for new additions of users to the system. Modifications or deletions made to existing users should be expressed in a User action event.
+  * This event type is only used for transaction-related events. If a single transaction involves multiple events (i.e. charge reversals, authorization, status changes), each of these events should be dispatched to Unit21 as discrete events.
 
 We designed Unit21's integrations for minimal disruption to our customer's business and engineering workflows. Because we service a wide range of businesses each interacting with and recording different kinds of data, we adopt a semi-flexible schema that can adapt to all relevant use-cases.
 
