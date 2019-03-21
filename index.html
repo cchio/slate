@@ -274,6 +274,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#report-filing" class="toc-h1 toc-link" data-title="Report Filing">Report Filing</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -330,7 +333,7 @@ The next sections will walk you through everything that&#39;s needed to get star
 <li><strong>Transaction event</strong> - provides details on any finalized transfers of monetary value involving users in the system.
 
 <ul>
-<li>This event type is only used for new additions of users to the system. Modifications or deletions made to existing users should be expressed in a User action event.</li>
+<li>This event type is only used for transaction-related events. If a single transaction involves multiple events (i.e. charge reversals, authorization, status changes), each of these events should be dispatched to Unit21 as discrete events.</li>
 </ul></li>
 </ol>
 
@@ -502,7 +505,7 @@ The next sections will walk you through everything that&#39;s needed to get star
 <tr>
 <td>referral_user_id</td>
 <td>String</td>
-<td>A <code>user_id</code> field that identifies another user that referred this user to the platform. For best results, the referrer should be</td>
+<td>A <code>user_id</code> field that identifies another user that referred this user to the platform.</td>
 </tr>
 <tr>
 <td>id_verified</td>
@@ -978,7 +981,7 @@ The next sections will walk you through everything that&#39;s needed to get star
 <li><code>funding_source</code></li>
 </ul></li>
 </ul>
-
+<h1 id='report-filing'>Report Filing</h1>
       </div>
       <div class="dark-box">
       </div>
